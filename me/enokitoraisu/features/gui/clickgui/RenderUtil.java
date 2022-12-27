@@ -1,3 +1,10 @@
+package me.enokitoraisu.features.gui.clickgui2;
+
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+
 public class RenderUtil {
     public static void rect(float x, float y, float width, float height, int color) {
         float red = (float) (color >> 16 & 255) / 255.0F;
