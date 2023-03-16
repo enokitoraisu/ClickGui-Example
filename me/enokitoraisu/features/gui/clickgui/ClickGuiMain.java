@@ -1,6 +1,5 @@
 package me.enokitoraisu.features.gui.clickgui;
 
-import me.enokitoraisu.features.module.Category;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 
