@@ -1,8 +1,5 @@
 package me.enokitoraisu.features.gui.clickgui;
 
-import me.enokitoraisu.features.module.Category;
-import me.enokitoraisu.features.module.Module;
-import me.enokitoraisu.intellijmod;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
@@ -26,7 +23,7 @@ public class CategoryPanel {
         this.height = height;
         this.mc = mc;
 
-        for (Module module : intellijmod.module.modules) {
+        for (Module module : ClientName.moduleManager.getModules()) {
             if (module.category == this.category) {
                 moduleButtons.add(new ModuleButton(module, x, y + height, width, height, mc));
             }
