@@ -1,7 +1,5 @@
-package me.enokitoraisu.features.gui.clickgui2;
+package me.enokitoraisu.features.gui.clickgui;
 
-import me.enokitoraisu.features.module.Category;
-import me.enokitoraisu.features.module.Module;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
