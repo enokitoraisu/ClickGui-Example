@@ -1,5 +1,6 @@
 # clickgui-example
 
-## I'll add a setting sometime
+## いつか設定の追加をします。
+## I will add settings someday
 
-![ScreenShot](screenshot.png)
+![Preview](screenshot.png)
