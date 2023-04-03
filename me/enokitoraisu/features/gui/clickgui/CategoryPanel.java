@@ -1,5 +1,7 @@
-package me.enokitoraisu.features.gui.clickgui;
+package me.enokitoraisu.features.gui.clickgui2;
 
+import me.enokitoraisu.features.module.Category;
+import me.enokitoraisu.features.module.Module;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ public class CategoryPanel {
 
         for (Module module : ClientName.moduleManager.getModules()) {
             if (module.category == this.category) {
-                moduleButtons.add(new ModuleButton(module, x, y + height, width, height, mc));
+                moduleButtons.add(new ModuleButton(module, x, y, width, height, mc));
             }
         }
     }
@@ -37,11 +39,10 @@ public class CategoryPanel {
                 y + height / 2f - mc.fontRenderer.FONT_HEIGHT / 2f,
                 -1);
 
-        int offset = 0;
         if (this.open) {
+            int offset = height;
             for (ModuleButton moduleButton : this.moduleButtons) {
-                moduleButton.drawScreen(mouseX, mouseY, partialTicks, offset);
-                offset += this.height;
+                offset += moduleButton.drawScreen(mouseX, mouseY, partialTicks, offset);
             }
         }
     }
@@ -54,6 +55,12 @@ public class CategoryPanel {
 
     public void keyTyped(char typedChar, int keyCode) {
         if (this.open) moduleButtons.forEach(moduleButton -> moduleButton.keyTyped(typedChar, keyCode));
+    }
+
+
+    public void mouseReleased(int mouseX, int mouseY, int state) {
+        if (this.open)
+            moduleButtons.forEach(moduleButton -> moduleButton.mouseReleased(mouseX, mouseY, state));
     }
 
     public boolean bounding(int mouseX, int mouseY) {

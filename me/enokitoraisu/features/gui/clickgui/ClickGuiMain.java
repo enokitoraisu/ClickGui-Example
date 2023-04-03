@@ -32,6 +32,11 @@ public class ClickGuiMain extends GuiScreen {
     }
 
     @Override
+    public void mouseReleased(int mouseX, int mouseY, int state) {
+        this.panels.forEach(panel -> panel.mouseReleased(mouseX, mouseY, state));
+    }
+
+    @Override
     public void keyTyped(char typedChar, int keyCode) {
         this.panels.forEach(panel -> panel.keyTyped(typedChar, keyCode));
         try { super.keyTyped(typedChar, keyCode); } catch (IOException ignored) { }
