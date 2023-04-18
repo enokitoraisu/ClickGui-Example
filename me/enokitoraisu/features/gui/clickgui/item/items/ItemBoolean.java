@@ -24,5 +24,6 @@ public class ItemBoolean extends Item<BoolSetting> {
         if (bounding(mouseX, mouseY)) {
             if (mouseButton == 0)
                 getObject().setValue(getObject().getValue());
+        }
     }
 }
