@@ -7,8 +7,8 @@ import org.lwjgl.input.Keyboard;
 public class ItemKeyBind extends Item<Module> {
     private boolean pendingKey;
 
-    public ItemKeyBind(Module setting, int x, int y, int width, int height) {
-        super(setting, x, y, width, height);
+    public ItemKeyBind(Module module, int x, int y, int width, int height) {
+        super(module, x, y, width, height);
     }
 
     @Override

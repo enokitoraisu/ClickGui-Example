@@ -2,6 +2,7 @@ package me.enokitoraisu.features.gui.clickgui;
 
 import me.enokitoraisu.features.gui.clickgui.item.Item;
 import me.enokitoraisu.features.gui.clickgui.item.items.ItemKeyBind;
+import me.enokitoraisu.features.gui.clickgui.item.items.ItemBoolean;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
@@ -25,6 +26,11 @@ public class ModuleButton {
         this.width = width;
         this.height = height;
         this.mc = mc;
+
+        for (Setting<?> setting : module.settings) {
+            if (setting instanceof BoolSetting)
+                items.add(new ItemBoolean((BoolSetting) setting, x, y, width, height));
+        }
 
         items.add(new ItemKeyBind(module, x, y, width, height));
     }
