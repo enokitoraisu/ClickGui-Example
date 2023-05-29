@@ -23,7 +23,7 @@ public class ItemBoolean extends Item<BoolSetting> {
     public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
         if (bounding(mouseX, mouseY)) {
             if (mouseButton == 0)
-                getObject().setValue(getObject().getValue());
+                getObject().setValue(!getObject().getValue());
         }
     }
 }
