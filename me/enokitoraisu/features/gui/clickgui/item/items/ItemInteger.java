@@ -35,6 +35,7 @@ public class ItemInteger extends Item<IntSetting> {
 
   @Override
   public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
+    if (!getObject().isVisible()) return;
     if (bounding(mouseX, mouseY)) {
       this.isSlide = true;
     }
