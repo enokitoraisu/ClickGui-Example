@@ -10,6 +10,7 @@ public class ItemBoolean extends Item<BoolSetting> {
 
     @Override
     public int drawScreen(int mouseX, int mouseY, float partialTicks, int offset) {
+        if (!getObject().isVisible()) return 0;
         this.offset = offset;
         float y = this.y + offset;
 
@@ -21,6 +22,7 @@ public class ItemBoolean extends Item<BoolSetting> {
 
     @Override
     public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
+        if (!getObject().isVisible()) return;
         if (bounding(mouseX, mouseY)) {
             if (mouseButton == 0)
                 getObject().setValue(!getObject().getValue());
