@@ -30,6 +30,8 @@ public class ModuleButton {
         for (Setting<?> setting : module.settings) {
             if (setting instanceof BoolSetting)
                 items.add(new ItemBoolean((BoolSetting) setting, x, y, width, height));
+            else if (setting instanceof IntSetting)
+                items.add(new ItemInteger((IntSetting) setting, x, y, width, height))
         }
 
         items.add(new ItemKeyBind(module, x, y, width, height));
