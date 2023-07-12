@@ -46,7 +46,7 @@ public class CategoryPanel {
     }
 
     public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
-        moduleButtons.forEach(moduleButton -> moduleButton.mouseClicked(mouseX, mouseY, mouseButton));
+        if (this.open) moduleButtons.forEach(moduleButton -> moduleButton.mouseClicked(mouseX, mouseY, mouseButton));
 
         if (bounding(mouseX, mouseY) && mouseButton == 1) this.open = !this.open;
     }
