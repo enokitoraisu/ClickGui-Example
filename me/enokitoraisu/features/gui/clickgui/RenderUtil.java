@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import org.lwjgl.opengl.GL11;
 
 public class RenderUtil {
     public static void rect(float x, float y, float width, float height, int color) {
@@ -17,7 +18,7 @@ public class RenderUtil {
         GlStateManager.disableTexture2D();
         GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
         GlStateManager.color(red, green, blue, alpha);
-        bufferbuilder.begin(7, DefaultVertexFormats.POSITION);
+        bufferbuilder.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION);
         bufferbuilder.pos(x, y + height, 0.0D).endVertex();
         bufferbuilder.pos(x + width, y + height, 0.0D).endVertex();
         bufferbuilder.pos(x + width, y, 0.0D).endVertex();
