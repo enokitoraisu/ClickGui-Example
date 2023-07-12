@@ -47,7 +47,7 @@ public class ItemColor extends Item<ColorSetting> {
       getObject().setValue(Color.getHSBColor(settingHue, settingSaturation, settingBrightness));
     } else if (isSlideHue) {
       settingHue = MathHelper.clamp(((float) mouseX - (x + 3)) / (width - 6), 0F, 1F);
-      getObject().setValue(Color.getHSBColor(settingHue, settingSaturation, settingBrightness))
+      getObject().setValue(Color.getHSBColor(settingHue, settingSaturation, settingBrightness));
     }
     
     return width + height;
