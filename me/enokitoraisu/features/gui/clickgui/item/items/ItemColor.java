@@ -55,6 +55,7 @@ public class ItemColor extends Item<ColorSetting> {
 
   @Override
   public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
+    if (!getObject().isVisible()) return;
     if (bounding(mouseX, mouseY, x + 3, y + height + 3, width - 6, width - 18))
       movingPicker = true;
     else if (bounding(mouseX, mouseY, x + 3, y + 3 + width - 15, width - 6, 12))
