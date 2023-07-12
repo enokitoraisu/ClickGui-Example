@@ -28,6 +28,13 @@ public class Item<T> {
         return mouseY <= this.y + this.offset + this.height;
     }
 
+    public boolean bounding(int mouseX, int mouseY, int x, int y, int width, int height) {
+        if (mouseX < x) return false;
+        if (mouseX > x + width) return false;
+        if (mouseY < y + this.offset) return false;
+        return mouseY <= y + this.offset + height;
+    }
+
     public T getObject() {
         return object;
     }
