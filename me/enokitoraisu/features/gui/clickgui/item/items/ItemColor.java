@@ -95,9 +95,9 @@ public class ItemColor extends Item<ColorSetting> {
 
   //lagggg
   public drawColorPicker(int x, int y, int width, int height, int color) {
-    float red = (float) (color >> 16 & 0xFF) / 255.0f;
-    float green = (float) (color >> 8 & 0xFF) / 255.0f;
-    float blue = (float) (color & 0xFF) / 255.0f;
+    int red = color >> 16 & 0xFF;
+    int green = color >> 8 & 0xFF;
+    int blue = color & 0xFF;
     float hue = Color.RGBtoHSB(red, green, blue, new float[3])[0];
     for (int colorX = 0; colorX < width; pickerX++) {
       for (int colorY = 0; colorY < height; pickerY++) {
@@ -109,9 +109,9 @@ public class ItemColor extends Item<ColorSetting> {
   }
 
   public int fixHue(int color) {
-    float red = (float) (color >> 16 & 0xFF) / 255.0f;
-    float green = (float) (color >> 8 & 0xFF) / 255.0f;
-    float blue = (float) (color & 0xFF) / 255.0f;
+    int red = color >> 16 & 0xFF;
+    int green = color >> 8 & 0xFF;
+    int blue = color & 0xFF;
     float hue = Color.RGBtoHSB(red, green, blue, new float[3])[0];
     return Color.HSBtoRGB(hue, 1F, 1F);
   }
