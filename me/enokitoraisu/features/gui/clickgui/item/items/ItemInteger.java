@@ -22,7 +22,7 @@ public class ItemInteger extends Item<IntSetting> {
     float drawWidth = (getObject().getValue().floatValue() - getObject().getMin()) / (getObject().getMax() - getObject().getMin());
     RenderUtil.rect(x, y, width * drawWidth, height, 0xFF2B71F3);
     String text = getObject().getName() + " " + getObject().getValue();
-    mc.fontRenderer.drawStringWithShadow(text, x + 5, y + height / 2 - mc.fontRenderer.FONT_HEIGHT / 2, -1);
+    mc.fontRenderer.drawStringWithShadow(text, x + 5, y + height / 2F - mc.fontRenderer.FONT_HEIGHT / 2F, -1);
 
     if (this.isSlide) {
       float value = ((float) mouseX - x) / width;
