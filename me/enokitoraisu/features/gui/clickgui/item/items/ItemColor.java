@@ -30,7 +30,7 @@ public class ItemColor extends Item<ColorSetting> {
     int y = this.y + offset;
 
     RenderUtil.rect(x + 2, y + 2, height - 4, height - 4, getIntValue());
-    mc.fontRenderer.drawStringWithShadow(x + height + 5, y + height / 2 - mc.fontRenderer.FONT_HEIGHT / 2, -1);
+    mc.fontRenderer.drawStringWithShadow(getObject().getName(), x + height + 5, y + height / 2 - mc.fontRenderer.FONT_HEIGHT / 2, -1);
     drawColorPicker(x + 3, y + height + 3, width - 6, width - 18, Color.HSBtoRGB(settingHue, settingSaturation, settingBrightness));
 
     //current saturation brightness
