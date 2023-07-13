@@ -8,7 +8,7 @@ public class ItemInteger extends Item<IntSetting> {
   private boolean isSlide;
 
   public ItemInteger(IntSetting intSetting, int x, int y, int width, int height) {
-    super(intSetting, x, y, width, height)
+    super(intSetting, x, y, width, height);
   }
 
   @Override
@@ -27,7 +27,7 @@ public class ItemInteger extends Item<IntSetting> {
     if (this.isSlide) {
       float value = ((float) mouseX - x) / width;
       value = MathHelper.clamp(value, 0.0F, 1.0F);
-      getObject().setValue((int) (getObject().getMin() + (getObject().getMax() - getObject().getMin()) * value))
+      getObject().setValue((int) (getObject().getMin() + (getObject().getMax() - getObject().getMin()) * value));
     }
   
     return height;
