@@ -31,7 +31,7 @@ public class ItemColor extends Item<ColorSetting> {
 
     RenderUtil.rect(x + 2, y + 2, height - 4, height - 4, getIntValue());
     mc.fontRenderer.drawStringWithShadow(x + height + 5, y + height / 2 - mc.fontRenderer.FONT_HEIGHT / 2, -1);
-    drawColorPicker(x + 3, y + height + 3, width - 6, width - 18, Color.HSBtoRGB(settingHue, settingSaturation, settingBirhgness));
+    drawColorPicker(x + 3, y + height + 3, width - 6, width - 18, Color.HSBtoRGB(settingHue, settingSaturation, settingBrightness));
 
     //current saturation brightness
     RenderUtil.rect(x + 3 + (width - 6) * settingSaturation, y + 3 + (width - 18) * settingBrightness, 1, 1, 0x80000000);
