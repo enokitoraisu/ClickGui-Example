@@ -94,13 +94,13 @@ public class ItemColor extends Item<ColorSetting> {
   }
 
   //lagggg
-  public drawColorPicker(int x, int y, int width, int height, int color) {
+  public void drawColorPicker(int x, int y, int width, int height, int color) {
     int red = color >> 16 & 0xFF;
     int green = color >> 8 & 0xFF;
     int blue = color & 0xFF;
     float hue = Color.RGBtoHSB(red, green, blue, new float[3])[0];
-    for (int colorX = 0; colorX < width; pickerX++) {
-      for (int colorY = 0; colorY < height; pickerY++) {
+    for (int colorX = 0; colorX < width; colorX++) {
+      for (int colorY = 0; colorY < height; colorX++) {
         float saturation = (float) colorX / width;
         float brightness = 1F - (float) colorY / height;
         RenderUtil.rect(x + colorX, y + colorY, 1, 1, Color.HSBtoRGB(hue, saturation, brightness));
