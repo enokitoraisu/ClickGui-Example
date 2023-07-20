@@ -14,6 +14,7 @@ public class ItemColor extends Item<ColorSetting> {
     private float settingHue, settingSaturation, settingBrightness;
     private boolean movingPicker;
     private boolean isSlideHue;
+    private boolean open;
 
     public ItemColor(ColorSetting colorSetting, int x, int y, int width, int height) {
         super(colorSetting, x, y, width, height);
@@ -21,6 +22,7 @@ public class ItemColor extends Item<ColorSetting> {
         this.settingHue = hsb[0];
         this.settingSaturation = hsb[1];
         this.settingBrightness = hsb[2];
+        //this.open = false;
     }
 
     @Override
@@ -33,23 +35,24 @@ public class ItemColor extends Item<ColorSetting> {
         mc.fontRenderer.drawStringWithShadow(getObject().getName(), x + height + 5, y + height / 2F - mc.fontRenderer.FONT_HEIGHT / 2F, -1);
         drawColorPicker(x + 3, y + height + 3, width - 6, width - 18, Color.HSBtoRGB(settingHue, settingSaturation, settingBrightness));
 
-        //current saturation brightness
-        RenderUtil.rect(x + 3 + (width - 6) * settingSaturation, y + height + 3 + (width - 18) * (1 - settingBrightness), 1, 1, 0x80000000);
-        for (int hueX = 0; hueX < width - 6; hueX++) {
-            RenderUtil.rect(x + 3 + hueX, y + height + 3 + width - 15, 1, 12, Color.HSBtoRGB((float) hueX / (width - 6), 1F, 1F));
+        if(open){
+            //current saturation brightness
+            RenderUtil.rect(x + 3 + (width - 6) * settingSaturation, y + height + 3 + (width - 18) * (1 - settingBrightness), 1, 1, 0x80000000);
+            for (int hueX = 0; hueX < width - 6; hueX++) {
+                RenderUtil.rect(x + 3 + hueX, y + height + 3 + width - 15, 1, 12, Color.HSBtoRGB((float) hueX / (width - 6), 1F, 1F));
+            }
+            //current hue
+            RenderUtil.rect(x + 3 + (width - 6) * settingHue, y + height + 3 + width - 15, 1, 12, 0x80000000);
+    
+            if (movingPicker) {
+                settingSaturation = MathHelper.clamp(((float) mouseX - (x + 3)) / (width - 6), 0F, 1F);
+                settingBrightness = 1 - MathHelper.clamp(((float) mouseY - (y + height + 3)) / (width - 18), 0F, 1F);
+                getObject().setValue(Color.getHSBColor(settingHue, settingSaturation, settingBrightness));
+            } else if (isSlideHue) {
+                settingHue = MathHelper.clamp(((float) mouseX - (x + 3)) / (width - 6), 0F, 1F);
+                getObject().setValue(Color.getHSBColor(settingHue, settingSaturation, settingBrightness));
+            }
         }
-        //current hue
-        RenderUtil.rect(x + 3 + (width - 6) * settingHue, y + height + 3 + width - 15, 1, 12, 0x80000000);
-
-        if (movingPicker) {
-            settingSaturation = MathHelper.clamp(((float) mouseX - (x + 3)) / (width - 6), 0F, 1F);
-            settingBrightness = 1 - MathHelper.clamp(((float) mouseY - (y + height + 3)) / (width - 18), 0F, 1F);
-            getObject().setValue(Color.getHSBColor(settingHue, settingSaturation, settingBrightness));
-        } else if (isSlideHue) {
-            settingHue = MathHelper.clamp(((float) mouseX - (x + 3)) / (width - 6), 0F, 1F);
-            getObject().setValue(Color.getHSBColor(settingHue, settingSaturation, settingBrightness));
-        }
-
         return width + height;
     }
 
@@ -60,6 +63,9 @@ public class ItemColor extends Item<ColorSetting> {
             movingPicker = true;
         else if (bounding(mouseX, mouseY, x + 3, y + height + 3 + width - 15, width - 6, 12))
             isSlideHue = true;
+        if(bounding(mouseX,mouseY) && mouseButton == 1){
+            open = !open;
+        }
     }
 
     @Override
