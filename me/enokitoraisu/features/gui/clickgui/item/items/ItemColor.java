@@ -22,7 +22,7 @@ public class ItemColor extends Item<ColorSetting> {
         this.settingHue = hsb[0];
         this.settingSaturation = hsb[1];
         this.settingBrightness = hsb[2];
-        //this.open = false;
+        this.open = false;
     }
 
     @Override
@@ -33,9 +33,8 @@ public class ItemColor extends Item<ColorSetting> {
 
         RenderUtil.rect(x + 2, y + 2, height - 4, height - 4, getObject().getValue().hashCode());
         mc.fontRenderer.drawStringWithShadow(getObject().getName(), x + height + 5, y + height / 2F - mc.fontRenderer.FONT_HEIGHT / 2F, -1);
-        drawColorPicker(x + 3, y + height + 3, width - 6, width - 18, Color.HSBtoRGB(settingHue, settingSaturation, settingBrightness));
-
         if(open){
+            drawColorPicker(x + 3, y + height + 3, width - 6, width - 18, Color.HSBtoRGB(settingHue, settingSaturation, settingBrightness));
             //current saturation brightness
             RenderUtil.rect(x + 3 + (width - 6) * settingSaturation, y + height + 3 + (width - 18) * (1 - settingBrightness), 1, 1, 0x80000000);
             for (int hueX = 0; hueX < width - 6; hueX++) {
