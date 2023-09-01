@@ -1,4 +1,4 @@
-package me.enokitoraisu.features.gui.clickgui;
+package me.enokitoraisu.features.gui.clickgui.util;
 
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;

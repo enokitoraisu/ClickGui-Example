@@ -1,6 +1,6 @@
 package me.enokitoraisu.features.gui.clickgui.item.items;
 
-import me.enokitoraisu.features.gui.clickgui.RenderUtil;
+import me.enokitoraisu.features.gui.clickgui.util.RenderUtil;
 import me.enokitoraisu.features.gui.clickgui.item.Item;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;

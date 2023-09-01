@@ -1,5 +1,6 @@
 package me.enokitoraisu.features.gui.clickgui;
 
+import me.enokitoraisu.features.gui.clickgui.util.RenderUtil;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
