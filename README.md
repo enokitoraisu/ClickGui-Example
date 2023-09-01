@@ -1,6 +1,6 @@
 # clickgui-example
 
-## いつか設定の追加をします。
-## I will add settings someday
+必要に応じてコードを変更してください。
+Please change the code according to your needs.
 
 ![Preview](screenshot.png)
