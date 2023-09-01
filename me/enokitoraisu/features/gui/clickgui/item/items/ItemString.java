@@ -57,10 +57,12 @@ public class ItemString extends Item<StrSetting> {
         switch (keyCode) {
             case Keyboard.KEY_LEFT:
                 this.input = Math.max(this.input - 1, 0);
+                if (this.input == value.length()) 
+                    moved = false;
                 break;
             case Keyboard.KEY_RIGHT:
-                this.len = Math.min(this.input + 1, value.length());
-                if (this.len == value.length()) 
+                this.input = Math.min(this.input + 1, value.length());
+                if (this.input == value.length()) 
                     moved = false;
                 break;
             case Keyboard.KEY_DELETE:
