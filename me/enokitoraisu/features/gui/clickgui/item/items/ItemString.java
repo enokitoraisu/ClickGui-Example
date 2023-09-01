@@ -40,6 +40,7 @@ public class ItemString extends Item<StrSetting> {
     @Override
     public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
         if (bounding(mouseX, mouseY) && mouseButton == 0) {
+            this.typing = !this.typing;
             if (typing) {
                 input = value.length();
                 moved = false;
