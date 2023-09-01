@@ -43,9 +43,9 @@ public class ItemString extends Item<StrSetting> {
             if (typing) {
                 input = value.length();
                 moved = false;
-                getString().setValue(value);
+                getObject().setValue(value);
             } else {
-                value = getString().getValue();
+                value = getObject().getValue();
                 input = value.length();
                 moved = false;
             }
@@ -67,14 +67,14 @@ public class ItemString extends Item<StrSetting> {
                 break;
             case Keyboard.KEY_DELETE:
                 value = getDELETEString(value, moved, input);
-                if (value.length() =< input) {
+                if (value.length() <= input) {
                     moved = false;
                     input = value.length();
                 }
                 break;
             case Keyboard.KEY_BACK:
                 value = getBACKSPACEString(value, moved, input);
-                if (value.length() =< input) {
+                if (value.length() <= input) {
                     moved = false;
                     input = value.length();
                 }
@@ -92,7 +92,7 @@ public class ItemString extends Item<StrSetting> {
     public String append(char typedChar, String value, boolean position, int inputPosition) {
         if (position) {
             String before = value.substring(0, inputPosition);
-            String after = value.substring(inputPosition, value);
+            String after = value.substring(inputPosition, value.length());
             return before + typedChar + after;
         } else {
             return value + typedChar;
