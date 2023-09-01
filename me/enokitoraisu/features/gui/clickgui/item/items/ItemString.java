@@ -2,6 +2,7 @@ package me.enokitoraisu.features.gui.clickgui.item.items;
 
 import me.enokitoraisu.features.gui.clickgui.util.RenderUtil;
 import me.enokitoraisu.features.gui.clickgui.item.Item;
+import net.minecraft.util.ChatAllowedCharacters;
 import org.lwjgl.input.Keyboard;
 
 public class ItemString extends Item<StrSetting> {
@@ -42,8 +43,11 @@ public class ItemString extends Item<StrSetting> {
             if (typing) {
                 input = value.length();
                 moved = false;
+                getString().setValue(value);
             } else {
-
+                value = getString().getValue();
+                input = value.length();
+                moved = false;
             }
         }
     }

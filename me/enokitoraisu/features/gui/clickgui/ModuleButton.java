@@ -36,6 +36,8 @@ public class ModuleButton {
                 items.add(new ItemFloat((FloatSetting) setting, x, y, width, height));
             else if (setting instanceof ColorSetting)
                 items.add(new ItemColor((ColorSetting) setting, x, y, width, height));
+            else if (setting instanceof StrSetting)
+                items.add(new ItemString((StrSetting) setting, x, y, width, height));
         }
 
         items.add(new ItemKeyBind(module, x, y, width, height));
