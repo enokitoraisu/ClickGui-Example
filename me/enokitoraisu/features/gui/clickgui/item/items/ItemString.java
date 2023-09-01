@@ -27,10 +27,10 @@ public class ItemString extends Item<StrSetting> {
         float y = offset + this.y;
 
         RenderUtil.rect(x, y, width, height, 0x80000000);
-        mc.fontRenderer.drawStringWidthShadow(value, x + 5, y + height / 2F - mc.fontRenderer.FONT_HEIGHT / 2F, 0xFF2B71F3);
+        mc.fontRenderer.drawStringWithShadow(value, x + 5, y + height / 2F - mc.fontRenderer.FONT_HEIGHT / 2F, 0xFF2B71F3);
         if (typing) {
             int len = moved ? this.input : value.length();
-            float len_width = mc.fontRenderer.getStringWidth(value.substring(0, this.len));
+            float len_width = mc.fontRenderer.getStringWidth(value.substring(0, this.input));
             RenderUtil.rect(x + 5 + len_width, y + height / 2F - mc.fontRenderer.FONT_HEIGHT / 2F, 1, mc.fontRenderer.FONT_HEIGHT, 0xFF2B71F3);
         }
 
