@@ -5,3 +5,7 @@
 Please change the code according to your needs.
 
 ![Preview](screenshot.png)
+
+スターしてください
+
+please star
