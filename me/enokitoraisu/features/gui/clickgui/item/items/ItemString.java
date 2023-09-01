@@ -55,6 +55,7 @@ public class ItemString extends Item<StrSetting> {
 
     @Override
     public void keyTyped(char typedChar, int keyCode) {
+        if (!typing) return;
         switch (keyCode) {
             case Keyboard.KEY_LEFT:
                 this.input = Math.max(this.input - 1, 0);
