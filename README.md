@@ -7,7 +7,11 @@ ItemStringがバグだらけ...
 
 Please change the code according to your needs.
 
+1.12.2
 ![Preview](screenshot.png)
+
+1.19
+![Preview](image.png)
 
 スターしてください
 
