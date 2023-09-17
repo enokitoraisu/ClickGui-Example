@@ -1,5 +1,6 @@
 package me.enokitoraisu.features.gui.clickgui;
 
+import me.enokitoraisu.features.gui.clickgui.utils.MouseUtil;
 import me.enokitoraisu.features.gui.clickgui.utils.RenderUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.MinecraftClient;
@@ -68,7 +69,7 @@ public class CategoryPanel {
             moduleButtons.forEach(moduleButton -> moduleButton.charTyped(chr, modifiers));
     }
 
-    public boolean bounding(int mouseX, int mouseY) {
+    public boolean bounding(double mouseX, double mouseY) {
         return MouseUtil.bounding(mouseX, mouseY, this.x, this.y, this.width, this.height);
     }
 }

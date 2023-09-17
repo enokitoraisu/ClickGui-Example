@@ -89,7 +89,7 @@ public class ModuleButton {
             items.forEach(item -> item.charTyped(chr, modifiers));
     }
 
-    public boolean bounding(int mouseX, int mouseY) {
+    public boolean bounding(double mouseX, double mouseY) {
         return MouseUtil.bounding(mouseX, mouseY, this.x, this.y + this.offset, this.width, this.height);
     }
 }
