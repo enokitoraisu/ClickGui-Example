@@ -1,5 +1,6 @@
 package me.enokitoraisu.features.gui.clickgui.item;
 
+import me.enokitoraisu.features.gui.clickgui.utils.MouseUtil;
 import net.minecraft.client.Minecraft;
 
 public class Item<T> {
@@ -22,17 +23,11 @@ public class Item<T> {
     public void keyTyped(char typedChar, int keyCode) { }
 
     public boolean bounding(int mouseX, int mouseY) {
-        if (mouseX < this.x) return false;
-        if (mouseX > this.x + this.width) return false;
-        if (mouseY < this.y + this.offset) return false;
-        return mouseY <= this.y + this.offset + this.height;
+        return MouseUtil.bounding(mouseX, mouseY, this.x, this.y + this.offset, this.width, this.height);;
     }
 
     public boolean bounding(int mouseX, int mouseY, int x, int y, int width, int height) {
-        if (mouseX < x) return false;
-        if (mouseX > x + width) return false;
-        if (mouseY < y + this.offset) return false;
-        return mouseY <= y + this.offset + height;
+        return MouseUtil.bounding(mouseX, mouseY, x, y, width, height);
     }
 
     public T getObject() {

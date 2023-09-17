@@ -1,5 +1,6 @@
 package me.enokitoraisu.features.gui.clickgui;
 
+import me.enokitoraisu.features.gui.clickgui.utils.MouseUtil;
 import me.enokitoraisu.features.gui.clickgui.utils.RenderUtil;
 import me.enokitoraisu.features.gui.clickgui.item.Item;
 import me.enokitoraisu.features.gui.clickgui.item.items.*;
@@ -83,9 +84,6 @@ public class ModuleButton {
     }
 
     public boolean bounding(int mouseX, int mouseY) {
-        if (mouseX < this.x) return false;
-        if (mouseX > this.x + this.width) return false;
-        if (mouseY < this.y + this.offset) return false;
-        return mouseY <= this.y + this.offset + this.height;
+        return MouseUtil.bounding(mouseX, mouseY, this.x, this.y + this.offset, this.width, this.height);
     }
 }

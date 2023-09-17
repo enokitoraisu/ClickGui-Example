@@ -1,10 +1,12 @@
 package me.enokitoraisu.features.gui.clickgui;
 
+import me.enokitoraisu.features.gui.clickgui.utils.MouseUtil;
 import me.enokitoraisu.features.gui.clickgui.utils.RenderUtil;
 import net.minecraft.client.Minecraft;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale.Category;
 
 public class CategoryPanel {
     private final Category category;
@@ -63,9 +65,6 @@ public class CategoryPanel {
     }
 
     public boolean bounding(int mouseX, int mouseY) {
-        if (mouseX < this.x) return false;
-        if (mouseX > this.x + this.width) return false;
-        if (mouseY < this.y) return false;
-        return mouseY <= this.y + this.height;
+        return MouseUtil.bounding(mouseX, mouseY, this.x, this.y, this.width, this.height);
     }
 }

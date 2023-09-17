@@ -2,6 +2,7 @@ package me.enokitoraisu.features.gui.clickgui;
 
 import me.enokitoraisu.features.gui.clickgui.item.Item;
 import me.enokitoraisu.features.gui.clickgui.item.items.*;
+import me.enokitoraisu.features.gui.clickgui.utils.MouseUtil;
 import me.enokitoraisu.features.gui.clickgui.utils.RenderUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.math.MatrixStack;
@@ -88,10 +89,7 @@ public class ModuleButton {
             items.forEach(item -> item.charTyped(chr, modifiers));
     }
 
-    public boolean bounding(double mouseX, double mouseY) {
-        if (mouseX < this.x) return false;
-        if (mouseX > this.x + this.width) return false;
-        if (mouseY < this.y + this.offset) return false;
-        return mouseY <= this.y + this.offset + this.height;
+    public boolean bounding(int mouseX, int mouseY) {
+        return MouseUtil.bounding(mouseX, mouseY, this.x, this.y + this.offset, this.width, this.height);
     }
 }

@@ -68,10 +68,7 @@ public class CategoryPanel {
             moduleButtons.forEach(moduleButton -> moduleButton.charTyped(chr, modifiers));
     }
 
-    public boolean bounding(double mouseX, double mouseY) {
-        if (mouseX < this.x) return false;
-        if (mouseX > this.x + this.width) return false;
-        if (mouseY < this.y) return false;
-        return mouseY <= this.y + this.height;
+    public boolean bounding(int mouseX, int mouseY) {
+        return MouseUtil.bounding(mouseX, mouseY, this.x, this.y, this.width, this.height);
     }
 }

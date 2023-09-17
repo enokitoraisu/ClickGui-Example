@@ -1,5 +1,6 @@
 package me.enokitoraisu.features.gui.clickgui.item;
 
+import me.enokitoraisu.features.gui.clickgui.utils.MouseUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.math.MatrixStack;
 
@@ -23,18 +24,12 @@ public class Item<T> {
     public void keyPressed(int keyCode, int scanCode, int modifiers) { }
     public void charTyped(char chr, int modifiers) { }
 
-    public boolean bounding(double mouseX, double mouseY) {
-        if (mouseX < this.x) return false;
-        if (mouseX > this.x + this.width) return false;
-        if (mouseY < this.y + this.offset) return false;
-        return mouseY <= this.y + this.offset + this.height;
+    public boolean bounding(int mouseX, int mouseY) {
+        return MouseUtil.bounding(mouseX, mouseY, this.x, this.y + this.offset, this.width, this.height);;
     }
 
-    public boolean bounding(double mouseX, double mouseY, int x, int y, int width, int height) {
-        if (mouseX < x) return false;
-        if (mouseX > x + width) return false;
-        if (mouseY < y + this.offset) return false;
-        return mouseY <= y + this.offset + height;
+    public boolean bounding(int mouseX, int mouseY, int x, int y, int width, int height) {
+        return MouseUtil.bounding(mouseX, mouseY, x, y, width, height);
     }
 
     public T getObject() {
