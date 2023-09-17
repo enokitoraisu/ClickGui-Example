@@ -34,7 +34,7 @@ public class CategoryPanel {
     }
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        RenderUtil.rect(x, y, width, height, 0xFF2B71F3);
+        RenderUtil.rect(matrices, x, y, width, height, 0xFF2B71F3);
         mc.textRenderer.drawWithShadow(matrices, category.name(),
                 x + width / 2f - mc.textRenderer.getWidth(category.name()) / 2f,
                 y + height / 2f - mc.textRenderer.fontHeight / 2f,
