@@ -9,7 +9,7 @@ public void onEnable() {
 }
 ```
 
-Modを有効にした際にScreenを表示させるのが一番シンプルで簡単です。
+Modを有効にした際にGuiScreenを表示させるのが一番シンプルで簡単です。
 
 # How to use
 
@@ -22,4 +22,4 @@ public void onEnable() {
 }
 ```
 
-The simplest and easiest way is to display the screen when the mod is enabled.
+The simplest and easiest way is to display the GuiScreen when the mod is enabled.
